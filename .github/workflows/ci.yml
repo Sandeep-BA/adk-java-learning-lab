@@ -1,0 +1,27 @@
+# Author: Sandeep Belgavi
+name: Verify learning lab
+on: [push, pull_request]
+permissions:
+  contents: read
+jobs:
+  java:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+          cache: maven
+          cache-dependency-path: java/pom.xml
+      - run: mvn -B -ntp -f java/pom.xml test
+  docs:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python -m pip install -r scripts/requirements-docs.txt ruff
+      - run: python -m ruff check scripts
+      - run: python scripts/build_docs.py --check

@@ -1,0 +1,4 @@
+# Author: Sandeep Belgavi
+* text=auto eol=lf
+*.png binary
+*.jpg binary

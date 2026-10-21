@@ -1,0 +1,35 @@
+<!doctype html>
+<!-- Generated from docs by scripts/build_docs.py. Author: Sandeep Belgavi. -->
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="author" content="Sandeep Belgavi"><title>Optional live-model setup · Belgavi's Lab</title>
+<link rel="stylesheet" href="../assets/site-content.css"></head><body>
+<a class="skip" href="#main">Skip to content</a><header><nav><a href="../LEARN.html">BELGAVI / AI LAB</a>
+<span>ADK JAVA LEARNING LAB</span></nav></header><main id="main"><h1 id="optional-live-model-setup">Optional live-model setup</h1><nav class="toc" aria-label="On this page"><strong>On this page</strong><div class="toc">
+<ul>
+<li><a href="#optional-live-model-setup">Optional live-model setup</a><ul>
+<li><a href="#prerequisites">Prerequisites</a></li>
+<li><a href="#set-configuration-securely">Set configuration securely</a></li>
+<li><a href="#run-the-narrowest-live-lesson">Run the narrowest live lesson</a></li>
+<li><a href="#validate-the-result">Validate the result</a></li>
+<li><a href="#stop-and-recover">Stop and recover</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</nav>
+<p>By Sandeep Belgavi.</p>
+<h2 id="prerequisites">Prerequisites</h2>
+<p>Complete the offline build first. You need your own Google model access, an available Gemini model identifier and an API key. Model availability and charges depend on your account. The repository does not supply credentials or create accounts.</p>
+<h2 id="set-configuration-securely">Set configuration securely</h2>
+<p>Set <code>GOOGLE_API_KEY</code> and <code>GOOGLE_MODEL</code> in the environment used to launch the application. Use your secret manager or a private terminal session. Do not commit values, paste them into issue reports or display them in a screen recording.</p>
+<p><code>.env.example</code> documents the names only. The CLI does not automatically read <code>.env</code> files. <code>GOOGLE_MODEL</code> is required so a model choice is explicit rather than silently relying on an alias.</p>
+<h2 id="run-the-narrowest-live-lesson">Run the narrowest live lesson</h2>
+<pre><code class="language-sh">mvn -f java/pom.xml exec:java -Dexec.args=&quot;2 live&quot;
+</code></pre>
+<p>The terminal prints a LIVE MODEL label. The application sends the instruction, prompt and tool declarations to the configured provider. The tools still use synthetic data locally.</p>
+<h2 id="validate-the-result">Validate the result</h2>
+<p>For SUP-1042, check that the response agrees with the fixture's open status. For SUP-9999, check that it reports absence instead of inventing data. Record the model identifier and SDK version with any evaluation results. Do not publish credentials or full private request logs.</p>
+<p>Live inference was not executed as part of the initial automated repository checks. A passing offline suite does not establish provider connectivity, tool-selection accuracy or injection resistance. A provider error should remain visible instead of being silently replaced by a fixture result.</p>
+<h2 id="stop-and-recover">Stop and recover</h2>
+<p>Use Ctrl+C if a manual run is taking too long. Review any provider usage separately. In-memory state disappears when the process exits. For hosted usage, implement authenticated sessions, durable storage, explicit deadlines and cancellation, and a task-specific evaluation suite.</p><nav class="next"><a href="../LEARN.html">All lessons</a><a href="references.html">References</a></nav></main>
+<footer>By Sandeep Belgavi · Original examples under MIT · Independent educational project</footer></body></html>

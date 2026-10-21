@@ -1,0 +1,42 @@
+<!doctype html>
+<!-- Generated from docs by scripts/build_docs.py. Author: Sandeep Belgavi. -->
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="author" content="Sandeep Belgavi"><title>References and reading order · Belgavi's Lab</title>
+<link rel="stylesheet" href="../assets/site-content.css"></head><body>
+<a class="skip" href="#main">Skip to content</a><header><nav><a href="../LEARN.html">BELGAVI / AI LAB</a>
+<span>ADK JAVA LEARNING LAB</span></nav></header><main id="main"><h1 id="references-and-reading-order">References and reading order</h1><nav class="toc" aria-label="On this page"><strong>On this page</strong><div class="toc">
+<ul>
+<li><a href="#references-and-reading-order">References and reading order</a><ul>
+<li><a href="#primary-sdk-references">Primary SDK references</a></li>
+<li><a href="#the-requested-redbus-reference">The requested redBus reference</a></li>
+<li><a href="#aicassindra-reading-map">AICassindra reading map</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</nav>
+<p>By Sandeep Belgavi. Links checked 2026-10-19.</p>
+<h2 id="primary-sdk-references">Primary SDK references</h2>
+<ul>
+<li><a href="https://adk.dev/get-started/java/">Official Java quickstart</a>: setup, agent construction and running a first application.</li>
+<li><a href="https://adk.dev/tools-custom/function-tools/">Official function-tool guide</a>: tool declarations and injected context.</li>
+<li><a href="https://github.com/google/adk-java/releases">Google ADK Java releases</a>: released Java versions.</li>
+</ul>
+<h2 id="the-requested-redbus-reference">The requested redBus reference</h2>
+<p><a href="https://github.com/redbus-labs/adk-java">redbus-labs/adk-java</a> is a public fork of Google's Java ADK, licensed Apache-2.0. We inspected its README, tutorial layout and source references at commit <code>f0f883783c8567ade440ba6e449cb1577b28c5ec</code>. These are reference links, not framework code copied into this application.</p>
+<ul>
+<li><a href="https://github.com/redbus-labs/adk-java/tree/f0f883783c8567ade440ba6e449cb1577b28c5ec">Pinned repository overview</a>: browse modules without depending on a moving branch.</li>
+<li><a href="https://github.com/redbus-labs/adk-java/tree/f0f883783c8567ade440ba6e449cb1577b28c5ec/tutorials/city-time-weather">City/time/weather tutorial</a>: another small application to study after lesson 1.</li>
+<li><a href="https://github.com/redbus-labs/adk-java/blob/f0f883783c8567ade440ba6e449cb1577b28c5ec/core/src/main/java/com/google/adk/tools/FunctionTool.java">FunctionTool implementation</a>: read how function methods are exposed to the runtime.</li>
+<li><a href="https://github.com/redbus-labs/adk-java/blob/f0f883783c8567ade440ba6e449cb1577b28c5ec/LICENSE">Fork license</a>: framework licensing, separate from the MIT license on our original examples.</li>
+</ul>
+<p>The fork's README version and our Maven artifact version (<code>com.google.adk:google-adk:1.12.0</code>) differ. Check the API against the pinned release before adapting a fork-specific example.</p>
+<p>The linked city/time/weather source illustrates <code>LlmAgent.builder</code>, <code>FunctionTool.create</code> and annotated parameters. Its weather response is a hard-coded demonstration, not a live weather service. Our support-ticket examples apply those framework concepts to original synthetic data and add repeatable tests; they do not copy that tutorial's implementation.</p>
+<h2 id="aicassindra-reading-map">AICassindra reading map</h2>
+<p>Read the executable lesson first, then the associated article for broader context. The links below resolved successfully when checked. Articles can evolve independently of this release.</p>
+<ul>
+<li><strong>Lesson 1:</strong> <a href="https://aicassindra.com/blogs/adk_java/adk_java_core_module_overview.html">ADK Java core module</a>. Use it to place the agent, runner and session within the framework.</li>
+</ul>
+<p>AICassindra material is by Sandeep Belgavi. It is linked rather than republished. Exact SDK code should be taken from the tested source here and the pinned upstream release, not assumed from conceptual article snippets. No private AICassindra files or local editorial URLs are required by the learner project.</p>
+<p>Reading for the next lessons is added as each episode is released.</p><nav class="next"><a href="../LEARN.html">All lessons</a><a href="references.html">References</a></nav></main>
+<footer>By Sandeep Belgavi · Original examples under MIT · Independent educational project</footer></body></html>

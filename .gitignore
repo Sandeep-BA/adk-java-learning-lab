@@ -1,0 +1,25 @@
+# Author: Sandeep Belgavi
+.env
+.env.*
+!.env.example
+.venv/
+**/__pycache__/
+**/*.pyc
+.pytest_cache/
+.ruff_cache/
+**/target/
+.cache/
+recordings/
+renders/
+local-notes/
+*.mp4
+*.wav
+*.mp3
+*.pem
+*.key
+credentials*.json
+token*.json
+.idea/
+.vscode/
+*.log
+**/*.egg-info/
