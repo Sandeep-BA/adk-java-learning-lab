@@ -66,13 +66,13 @@ Prefer a browser? Open [LEARN.html](LEARN.html) locally for the same guides, nav
 - [Debugging](docs/debugging.md) provides a real breakpoint walkthrough for the tool boundary.
 - [Troubleshooting](docs/troubleshooting.md) explains common setup and SDK warnings.
 - [Architecture](docs/architecture.md) explains the code layout and execution flow.
-- [References](docs/references.md) maps the lessons to official docs, the redBus fork and relevant AICassindra articles.
+- [References](docs/references.md) maps the lessons to official docs, the pinned Google ADK source and relevant AICassindra articles.
 
 ## Reference projects and attribution
 
-The user-selected [redbus-labs/adk-java](https://github.com/redbus-labs/adk-java) is a fork of [google/adk-java](https://github.com/google/adk-java). It is a useful source-reading reference. This application uses the released Google artifact, not an unpublished fork build. The two must not be described as identical versions. See the [pinned source map](docs/references.md).
+[google/adk-java](https://github.com/google/adk-java) is the upstream framework. This application uses its released Maven artifact; the [pinned source map](docs/references.md) links the matching source tag for reading.
 
-Original examples and learner documentation are by Sandeep Belgavi, licensed under [MIT](LICENSE). ADK and other dependencies retain their own licenses. No framework source is vendored. This independent educational project is not an official Google or redBus course.
+Original examples and learner documentation are by Sandeep Belgavi, licensed under [MIT](LICENSE). ADK and other dependencies retain their own licenses. No framework source is vendored. This independent educational project is not an official Google course.
 
 ## Contributing with a coding agent
 

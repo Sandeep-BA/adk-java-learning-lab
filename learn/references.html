@@ -8,7 +8,7 @@
 <ul>
 <li><a href="#references-and-reading-order">References and reading order</a><ul>
 <li><a href="#primary-sdk-references">Primary SDK references</a></li>
-<li><a href="#the-requested-redbus-reference">The requested redBus reference</a></li>
+<li><a href="#reading-the-framework-source">Reading the framework source</a></li>
 <li><a href="#aicassindra-reading-map">AICassindra reading map</a></li>
 </ul>
 </li>
@@ -22,16 +22,15 @@
 <li><a href="https://adk.dev/tools-custom/function-tools/">Official function-tool guide</a>: tool declarations and injected context.</li>
 <li><a href="https://github.com/google/adk-java/releases">Google ADK Java releases</a>: released Java versions.</li>
 </ul>
-<h2 id="the-requested-redbus-reference">The requested redBus reference</h2>
-<p><a href="https://github.com/redbus-labs/adk-java">redbus-labs/adk-java</a> is a public fork of Google's Java ADK, licensed Apache-2.0. We inspected its README, tutorial layout and source references at commit <code>f0f883783c8567ade440ba6e449cb1577b28c5ec</code>. These are reference links, not framework code copied into this application.</p>
+<h2 id="reading-the-framework-source">Reading the framework source</h2>
+<p>The application depends on the released artifact <code>com.google.adk:google-adk:1.12.0</code>. The links below are pinned to the matching source tag, so they do not move with the main branch. They are reference links, not framework code copied into this application.</p>
 <ul>
-<li><a href="https://github.com/redbus-labs/adk-java/tree/f0f883783c8567ade440ba6e449cb1577b28c5ec">Pinned repository overview</a>: browse modules without depending on a moving branch.</li>
-<li><a href="https://github.com/redbus-labs/adk-java/tree/f0f883783c8567ade440ba6e449cb1577b28c5ec/tutorials/city-time-weather">City/time/weather tutorial</a>: another small application to study after lesson 1.</li>
-<li><a href="https://github.com/redbus-labs/adk-java/blob/f0f883783c8567ade440ba6e449cb1577b28c5ec/core/src/main/java/com/google/adk/tools/FunctionTool.java">FunctionTool implementation</a>: read how function methods are exposed to the runtime.</li>
-<li><a href="https://github.com/redbus-labs/adk-java/blob/f0f883783c8567ade440ba6e449cb1577b28c5ec/LICENSE">Fork license</a>: framework licensing, separate from the MIT license on our original examples.</li>
+<li><a href="https://github.com/google/adk-java/tree/v1.12.0">Source at v1.12.0</a>: browse the modules.</li>
+<li><a href="https://github.com/google/adk-java/tree/v1.12.0/tutorials/city-time-weather">City/time/weather tutorial</a>: another small application to study after lesson 1.</li>
+<li><a href="https://github.com/google/adk-java/blob/v1.12.0/core/src/main/java/com/google/adk/tools/FunctionTool.java">FunctionTool implementation</a>: read how function methods are exposed to the runtime.</li>
+<li><a href="https://github.com/google/adk-java/blob/v1.12.0/LICENSE">Framework license</a>: Apache-2.0, separate from the MIT license on our original examples.</li>
 </ul>
-<p>The fork's README version and our Maven artifact version (<code>com.google.adk:google-adk:1.12.0</code>) differ. Check the API against the pinned release before adapting a fork-specific example.</p>
-<p>The linked city/time/weather source illustrates <code>LlmAgent.builder</code>, <code>FunctionTool.create</code> and annotated parameters. Its weather response is a hard-coded demonstration, not a live weather service. Our support-ticket examples apply those framework concepts to original synthetic data and add repeatable tests; they do not copy that tutorial's implementation.</p>
+<p>The city/time/weather tutorial illustrates <code>LlmAgent.builder</code>, <code>FunctionTool.create</code> and annotated parameters. Its weather response is a hard-coded demonstration, not a live weather service. Our support-ticket examples apply those framework concepts to original synthetic data and add repeatable tests; they do not copy that tutorial's implementation.</p>
 <h2 id="aicassindra-reading-map">AICassindra reading map</h2>
 <p>Read the executable lesson first, then the associated article for broader context. The links below resolved successfully when checked. Articles can evolve independently of this release.</p>
 <ul>

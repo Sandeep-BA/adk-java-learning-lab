@@ -8,18 +8,16 @@ By Sandeep Belgavi. Links checked 2026-10-19.
 - [Official function-tool guide](https://adk.dev/tools-custom/function-tools/): tool declarations and injected context.
 - [Google ADK Java releases](https://github.com/google/adk-java/releases): released Java versions.
 
-## The requested redBus reference
+## Reading the framework source
 
-[redbus-labs/adk-java](https://github.com/redbus-labs/adk-java) is a public fork of Google's Java ADK, licensed Apache-2.0. We inspected its README, tutorial layout and source references at commit `f0f883783c8567ade440ba6e449cb1577b28c5ec`. These are reference links, not framework code copied into this application.
+The application depends on the released artifact `com.google.adk:google-adk:1.12.0`. The links below are pinned to the matching source tag, so they do not move with the main branch. They are reference links, not framework code copied into this application.
 
-- [Pinned repository overview](https://github.com/redbus-labs/adk-java/tree/f0f883783c8567ade440ba6e449cb1577b28c5ec): browse modules without depending on a moving branch.
-- [City/time/weather tutorial](https://github.com/redbus-labs/adk-java/tree/f0f883783c8567ade440ba6e449cb1577b28c5ec/tutorials/city-time-weather): another small application to study after lesson 1.
-- [FunctionTool implementation](https://github.com/redbus-labs/adk-java/blob/f0f883783c8567ade440ba6e449cb1577b28c5ec/core/src/main/java/com/google/adk/tools/FunctionTool.java): read how function methods are exposed to the runtime.
-- [Fork license](https://github.com/redbus-labs/adk-java/blob/f0f883783c8567ade440ba6e449cb1577b28c5ec/LICENSE): framework licensing, separate from the MIT license on our original examples.
+- [Source at v1.12.0](https://github.com/google/adk-java/tree/v1.12.0): browse the modules.
+- [City/time/weather tutorial](https://github.com/google/adk-java/tree/v1.12.0/tutorials/city-time-weather): another small application to study after lesson 1.
+- [FunctionTool implementation](https://github.com/google/adk-java/blob/v1.12.0/core/src/main/java/com/google/adk/tools/FunctionTool.java): read how function methods are exposed to the runtime.
+- [Framework license](https://github.com/google/adk-java/blob/v1.12.0/LICENSE): Apache-2.0, separate from the MIT license on our original examples.
 
-The fork's README version and our Maven artifact version (`com.google.adk:google-adk:1.12.0`) differ. Check the API against the pinned release before adapting a fork-specific example.
-
-The linked city/time/weather source illustrates `LlmAgent.builder`, `FunctionTool.create` and annotated parameters. Its weather response is a hard-coded demonstration, not a live weather service. Our support-ticket examples apply those framework concepts to original synthetic data and add repeatable tests; they do not copy that tutorial's implementation.
+The city/time/weather tutorial illustrates `LlmAgent.builder`, `FunctionTool.create` and annotated parameters. Its weather response is a hard-coded demonstration, not a live weather service. Our support-ticket examples apply those framework concepts to original synthetic data and add repeatable tests; they do not copy that tutorial's implementation.
 
 ## AICassindra reading map
 
