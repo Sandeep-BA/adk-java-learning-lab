@@ -14,13 +14,13 @@ Complete README steps 1–3. The first run may download Maven dependencies. No m
 mvn -f java/pom.xml exec:java -Dexec.args="1 offline"
 ```
 
-Look for the offline label and `Offline hello`. The exact echoed instruction is less important than knowing where it came from. The fixture produces the answer; a live Gemini model is not contacted.
+Look for the offline label and `Offline hello`. The exact echoed instruction matters less than knowing where it came from. The fixture produces the answer; no live Gemini model is contacted.
 
 ## Step 2: Read the agent definition
 
-Open `java/src/main/java/dev/belgavi/adk/LessonAgents.java`. In `create`, lesson 1 constructs an `LlmAgent` with a name, role instruction, model and output key. There are no tools yet.
+Open `java/src/main/java/dev/belgavi/adk/LessonAgents.java`. In `create`, lesson 1 constructs an `LlmAgent` with a name, a role instruction, a model and an output key. There are no tools yet.
 
-The model adapter is selected in the helper `agent` method. Offline mode constructs `OfflineModel`; live mode accepts a configured model name. Keep that decision explicit when comparing results.
+The helper method `agent` selects the model adapter. Offline mode constructs `OfflineModel`; live mode uses the model name set in `GOOGLE_MODEL`. Keep that decision explicit when comparing results.
 
 ## Step 3: Follow a turn
 
@@ -36,11 +36,11 @@ LabCli → LessonAgents → LabSession
                       final response
 ```
 
-`OfflineModel` extends ADK's model abstraction. It is deliberately deterministic, so tests can exercise orchestration without a provider account. It is not an alternative language model.
+`OfflineModel` extends ADK's model abstraction, `BaseLlm`. It is deliberately deterministic, so tests can exercise orchestration without a provider account. It is not an alternative language model.
 
 ## Step 4: Make one change
 
-Change the lesson 1 instruction to ask for a different one-sentence role. Run again. The fixture echoes the instruction, demonstrating that the configuration reaches the model boundary. Do not interpret the echo as successful reasoning.
+Change the lesson 1 instruction to ask for a different one-sentence role and run again. The fixture echoes the instruction, which shows that the configuration reaches the model boundary. Do not interpret the echo as successful reasoning.
 
 ## Step 5: Check your understanding
 
@@ -48,17 +48,17 @@ Change the lesson 1 instruction to ask for a different one-sentence role. Run ag
 mvn -f java/pom.xml test "-Dtest=LabTest#everyReleasedLessonRunsThroughSdk"
 ```
 
-Explain these distinctions: the agent defines behavior, the runner executes it, the session carries context and the model supplies responses. The test covers the configured offline execution path, not live answer quality.
+Explain these distinctions: the agent defines behavior, the runner executes it, the session carries context and the model supplies responses. The test covers the offline execution path, not live answer quality.
 
 ## Read next
 
-Episode 1 of Belgavi's AI Lab also runs the ticket lookup, so you can try it now:
+Episode 1 of Belgavi's AI Lab also runs the case lookup, so you can try it now:
 
 ```sh
 mvn -f java/pom.xml exec:java -Dexec.args="2 offline"
-mvn -f java/pom.xml exec:java "-Dexec.args=9 offline 'Look up SUP-9999'"
+mvn -f java/pom.xml exec:java "-Dexec.args=9 offline 'Look up CASE-9999'"
 ```
 
-The first finds SUP-1042 (open); the second shows a missing ticket returned as data, `not_found`, instead of an invented status. Lesson 2, how function tools really work, arrives with Episode 2.
+The first finds CASE-1042 (open); the second shows a missing case returned as data, `not_found`, instead of an invented status. Lesson 2, how function tools really work, arrives with Episode 2.
 
 For background, read [AICassindra's core-module overview](https://aicassindra.com/blogs/adk_java/adk_java_core_module_overview.html). Treat article snippets as conceptual material; the pinned examples here are the executable reference for this course.

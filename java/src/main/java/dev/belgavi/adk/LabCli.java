@@ -9,7 +9,7 @@ public final class LabCli {
     boolean live = args.length > 1 && args[1].equals("live");
     if (args.length > 1 && !live && !args[1].equals("offline"))
       throw new IllegalArgumentException("Mode must be offline or live.");
-    String prompt = args.length > 2 ? args[2] : "Look up SUP-1042";
+    String prompt = args.length > 2 ? args[2] : "Look up CASE-1042";
     System.out.println(
         live
             ? "LIVE MODEL: API usage may incur charges"

@@ -13,7 +13,7 @@ This is a public learner repository. Include only original example code, tests a
 7. Inspect the staged diff. Exclude secrets, absolute personal paths and production materials. Preserve third-party attribution.
 8. Credit Sandeep Belgavi on original source files where comments are valid, README and package metadata.
 
-A good scoped task: add synthetic SUP-1044, test its status and missing-record behavior, update lesson 1's lookup example and regenerate the learner HTML. Do not rewrite unrelated agents or publish a site.
+A good scoped task: add synthetic CASE-1044, test its status and missing-record behavior, update lesson 1's lookup example and regenerate the learner HTML. Do not rewrite unrelated agents or publish a site.
 
 ## Commit messages
 

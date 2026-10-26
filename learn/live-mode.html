@@ -19,17 +19,17 @@
 </nav>
 <p>By Sandeep Belgavi.</p>
 <h2 id="prerequisites">Prerequisites</h2>
-<p>Complete the offline build first. You need your own Google model access, an available Gemini model identifier and an API key. Model availability and charges depend on your account. The repository does not supply credentials or create accounts.</p>
+<p>Complete the offline build first. You need your own Gemini API access: a Gemini model identifier available to your account and a Gemini API key. Model availability and charges depend on your account. The repository does not supply credentials or create accounts.</p>
 <h2 id="set-configuration-securely">Set configuration securely</h2>
 <p>Set <code>GOOGLE_API_KEY</code> and <code>GOOGLE_MODEL</code> in the environment used to launch the application. Use your secret manager or a private terminal session. Do not commit values, paste them into issue reports or display them in a screen recording.</p>
-<p><code>.env.example</code> documents the names only. The CLI does not automatically read <code>.env</code> files. <code>GOOGLE_MODEL</code> is required so a model choice is explicit rather than silently relying on an alias.</p>
+<p><code>.env.example</code> documents the names only. The CLI does not automatically read <code>.env</code> files. <code>GOOGLE_MODEL</code> is required so that the model choice is explicit rather than silently relying on an alias. Leave <code>GOOGLE_GENAI_USE_VERTEXAI</code> unset (or <code>false</code>): when it is <code>true</code>, the Google Gen AI SDK targets Vertex AI instead of using the API key.</p>
 <h2 id="run-the-narrowest-live-lesson">Run the narrowest live lesson</h2>
 <pre><code class="language-sh">mvn -f java/pom.xml exec:java -Dexec.args=&quot;2 live&quot;
 </code></pre>
-<p>The terminal prints a LIVE MODEL label. The application sends the instruction, prompt and tool declarations to the configured provider. The tools still use synthetic data locally.</p>
+<p>The terminal prints a <code>LIVE MODEL</code> label. The application sends the instruction, prompt and tool declarations to the configured model. The tools still run locally on synthetic data.</p>
 <h2 id="validate-the-result">Validate the result</h2>
-<p>For SUP-1042, check that the response agrees with the fixture's open status. For SUP-9999, check that it reports absence instead of inventing data. Record the model identifier and SDK version with any evaluation results. Do not publish credentials or full private request logs.</p>
-<p>Live inference was not executed as part of the initial automated repository checks. A passing offline suite does not establish provider connectivity, tool-selection accuracy or injection resistance. A provider error should remain visible instead of being silently replaced by a fixture result.</p>
+<p>For CASE-1042, check that the response agrees with the fixture's open status. For CASE-9999, check that it reports absence instead of inventing data. Record the model identifier and SDK version with any evaluation results. Do not publish credentials or full private request logs.</p>
+<p>The automated repository checks do not run live inference. A passing offline suite does not establish provider connectivity, tool-selection accuracy or injection resistance. A provider error should remain visible instead of being silently replaced by a fixture result.</p>
 <h2 id="stop-and-recover">Stop and recover</h2>
 <p>Use Ctrl+C if a manual run is taking too long. Review any provider usage separately. In-memory state disappears when the process exits. For hosted usage, implement authenticated sessions, durable storage, explicit deadlines and cancellation, and a task-specific evaluation suite.</p><nav class="next"><a href="../LEARN.html">All lessons</a><a href="references.html">References</a></nav></main>
 <footer>By Sandeep Belgavi · Original examples under MIT · Independent educational project</footer></body></html>

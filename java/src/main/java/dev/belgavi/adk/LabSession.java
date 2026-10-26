@@ -10,7 +10,7 @@ import java.util.Map;
 import java.util.Optional;
 import java.util.concurrent.TimeUnit;
 
-/** One runner and one user session; do not share this as a production identity boundary. */
+/** One runner and one user session; do not use it as a production identity boundary. */
 public final class LabSession implements AutoCloseable {
   private final InMemoryRunner runner;
   private final String id;

@@ -66,8 +66,8 @@ def build(check=False):
                 f"<h2>{html.escape(title)}</h2><p>Run · inspect · test · extend</p></a>"
             )
     index = (
-        """<p class="eyebrow">LEARN BY RUNNING THE CODE</p><h1>ADK Java.<br><em>Five practical foundations.</em></h1>
-<p class="lead">Build a small support-ticket agent, understand its boundaries and compare the Python implementation.</p>
+        """<p class="eyebrow">LEARN BY RUNNING THE CODE</p><h1>ADK Java.<br><em>Practical foundations.</em></h1>
+<p class="lead">Build a small help-desk agent for Belgavi's Book Store and understand its boundaries.</p>
 <p>By Sandeep Belgavi</p><nav class="toc"><a href="README.md">Setup instructions</a><a href="#lessons">Lessons</a>
 <a href="learn/architecture.html">Architecture</a><a href="learn/references.html">References</a><a href="learn/troubleshooting.html">Troubleshooting</a></nav>
 <aside>Default runs use the real ADK framework with a simulated model and synthetic data. No model account is required.</aside>

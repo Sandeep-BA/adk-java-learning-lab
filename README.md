@@ -1,8 +1,8 @@
 # Belgavi's Lab
 
-**By Sandeep Belgavi.** Build and understand a Support Desk Agent with Google ADK Java, one capability per episode of [Belgavi's AI Lab](https://www.youtube.com/@belgaviai) on YouTube.
+**By Sandeep Belgavi.** Build and understand a small help-desk agent for Belgavi's Book Store, a fictional online bookstore, with ADK for Java, one capability per episode of [Belgavi's AI Lab](https://www.youtube.com/@belgaviai) on YouTube.
 
-This repository grows with the series: each episode adds its lesson here when the video is released. Every lesson has a command, expected result, code walkthrough, test and exercise. The default examples require no model account or API key.
+This repository grows with the series: each episode adds its lesson here when the video is released. Every lesson has a command, an expected result, a code walkthrough, a test and an exercise. The default examples require no model account or API key.
 
 ## 1. Check your tools
 
@@ -31,7 +31,7 @@ Run all commands below from this directory. No framework checkout or local SDK b
 mvn -B -ntp -f java/pom.xml test
 ```
 
-Expected: `BUILD SUCCESS`. The suite exercises actual ADK runners and tools with a deterministic model fixture. It also checks invalid identifiers and missing records. Initial dependency downloads need internet access. Offline model execution does not mean dependency installation works without a network.
+Expected: `BUILD SUCCESS`. The suite exercises real ADK runners and tools with a deterministic model fixture. It also checks invalid identifiers and missing records. The first build downloads dependencies and needs internet access; the offline model only removes the need for a model account.
 
 ## 4. Run your first agent
 
@@ -47,11 +47,11 @@ Expected: `OFFLINE FIXTURE: real ADK, simulated model`, followed by an `Offline 
 | --- | --- | --- |
 | 1 | Your first agent, and how ADK runs it | [Your first agent](docs/01-first-agent.md) |
 
-Episode 1 also runs the ticket lookup used in the video:
+Episode 1 also runs the case lookup used in the video:
 
 ```sh
 mvn -f java/pom.xml exec:java -Dexec.args="2 offline"
-mvn -f java/pom.xml exec:java "-Dexec.args=9 offline 'Look up SUP-9999'"
+mvn -f java/pom.xml exec:java "-Dexec.args=9 offline 'Look up CASE-9999'"
 ```
 
 **Coming next in the series:** function tools (how the model calls your code), sessions, state, guardrails, and workflows that chain lookup, policy and reply. Each lesson lands here with its episode. Watch or subscribe at [youtube.com/@belgaviai](https://www.youtube.com/@belgaviai).
@@ -60,13 +60,13 @@ Prefer a browser? Open [LEARN.html](LEARN.html) locally for the same guides, nav
 
 ## 6. Understand the boundaries
 
-- Only synthetic `SUP-1042` and `SUP-1043` records exist. No external business system is contacted by the tools.
+- Only synthetic `CASE-1042` and `CASE-1043` records exist. The tools contact no external business system.
 - Sessions are in memory and use a fixed demo identity. This is not a hosted authentication or persistence implementation.
 - A live model is optional and may incur charges. See [live setup](docs/live-mode.md) before enabling it.
-- [Debugging](docs/debugging.md) provides a real breakpoint walkthrough for the tool boundary.
+- [Debugging](docs/debugging.md) walks through a real breakpoint at the tool boundary.
 - [Troubleshooting](docs/troubleshooting.md) explains common setup and SDK warnings.
 - [Architecture](docs/architecture.md) explains the code layout and execution flow.
-- [References](docs/references.md) maps the lessons to official docs, the pinned Google ADK source and relevant AICassindra articles.
+- [References](docs/references.md) maps each lesson to the official docs, the pinned Google ADK source and relevant AICassindra articles.
 
 ## Reference projects and attribution
 
