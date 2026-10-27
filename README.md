@@ -72,7 +72,7 @@ Prefer a browser? Open [LEARN.html](LEARN.html) locally for the same guides, nav
 
 [google/adk-java](https://github.com/google/adk-java) is the upstream framework. This application uses its released Maven artifact; the [pinned source map](docs/references.md) links the matching source tag for reading.
 
-Original examples and learner documentation are by Sandeep Belgavi, licensed under [MIT](LICENSE). ADK and other dependencies retain their own licenses. No framework source is vendored. This independent educational project is not an official Google course.
+Original examples and learner documentation are by Sandeep Belgavi, licensed under [MIT](LICENSE). ADK and other dependencies retain their own licenses. No framework source is vendored. This independent educational project is not an official Google course. Views are my own and do not represent any employer, past or present.
 
 ## Contributing with a coding agent
 
