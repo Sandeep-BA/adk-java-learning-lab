@@ -72,7 +72,6 @@ python -m venv .venv
 - Only synthetic `CASE-1042` and `CASE-1043` records exist. The tools contact no external business system.
 - Sessions are in memory and use a fixed demo identity. This is not a hosted authentication or persistence implementation.
 - A live model is optional and may incur charges. See [live setup](docs/live-mode.md) before enabling it.
-- [Debugging](docs/debugging.md) walks through a real breakpoint at the tool boundary.
 - [Troubleshooting](docs/troubleshooting.md) explains common setup and SDK warnings.
 - [Architecture](docs/architecture.md) explains the code layout and execution flow.
 - [References](docs/references.md) maps each lesson to the official docs, the pinned Google ADK source and relevant AICassindra articles.
@@ -82,7 +81,3 @@ python -m venv .venv
 [google/adk-java](https://github.com/google/adk-java) is the upstream framework. This application uses its released Maven artifact; the [pinned source map](docs/references.md) links the matching source tag for reading.
 
 Original examples and learner documentation are by Sandeep Belgavi, licensed under [MIT](LICENSE). ADK and other dependencies retain their own licenses. No framework source is vendored. This independent educational project is not an official Google course.
-
-## Contributing with a coding agent
-
-Read [AGENTS.md](AGENTS.md). Make one bounded change, add a meaningful assertion and run the existing checks. CI runs the Java tests, the Python tests and ruff. No workflow publishes a website or video.
