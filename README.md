@@ -6,7 +6,7 @@ This repository grows with the series: each episode adds its lesson here when th
 
 ## 1. Check your tools
 
-Install **JDK 17+**, **Maven 3.9+** and Git.
+Install **JDK 17+**, **Maven 3.9+** and Git. Python **3.11+** is optional, for the Python comparison in each lesson.
 
 ```sh
 java -version
@@ -46,17 +46,26 @@ Expected: `OFFLINE FIXTURE: real ADK, simulated model`, followed by an `Offline 
 | Episode | What you build | Start here |
 | --- | --- | --- |
 | 1 | Your first agent, and how ADK runs it | [Your first agent](docs/01-first-agent.md) |
+| 2 | A function tool that validates what the model sends | [Function tools](docs/02-function-tools.md) |
 
-Episode 1 also runs the case lookup used in the video:
+Episode 2's contrast demo runs the same inputs through an unchecked tool and the validated one:
 
 ```sh
-mvn -f java/pom.xml exec:java -Dexec.args="2 offline"
-mvn -f java/pom.xml exec:java "-Dexec.args=9 offline 'Look up CASE-9999'"
+mvn -f java/pom.xml exec:java -Dexec.args="contract"
 ```
 
-**Coming next in the series:** function tools (how the model calls your code), sessions, state, guardrails, and workflows that chain lookup, policy and reply. Each lesson lands here with its episode. Watch or subscribe at [youtube.com/@belgaviai](https://www.youtube.com/@belgaviai).
+**Coming next in the series:** sessions, state, guardrails, and workflows that chain lookup, policy and reply. Each lesson lands here with its episode. Watch or subscribe at [youtube.com/@belgaviai](https://www.youtube.com/@belgaviai).
 
-Prefer a browser? Open [LEARN.html](LEARN.html) locally for the same guides, navigation and architecture diagram.
+### Python comparison
+
+Each lesson also shows the Python equivalent with `google-adk` 2.12.0:
+
+```sh
+python -m venv .venv
+.venv/bin/pip install -e "./python[dev]"      # Windows: .venv\Scripts\pip
+.venv/bin/python -m pytest python/tests -q
+.venv/bin/python -m belgavi_adk.contract_demo
+```
 
 ## 6. Understand the boundaries
 
@@ -76,6 +85,4 @@ Original examples and learner documentation are by Sandeep Belgavi, licensed und
 
 ## Contributing with a coding agent
 
-Read [AGENTS.md](AGENTS.md). Make one bounded change, add a meaningful assertion and run the existing checks. Edit `docs/` and regenerate the HTML with `python scripts/build_docs.py`. CI checks the Java build and the documentation. No workflow publishes a website or video.
-
-Install the documentation renderer with `python -m pip install -r scripts/requirements-docs.txt`. After regenerating, run `python scripts/build_docs.py --check` to check generated content and local links.
+Read [AGENTS.md](AGENTS.md). Make one bounded change, add a meaningful assertion and run the existing checks. CI runs the Java tests, the Python tests and ruff. No workflow publishes a website or video.

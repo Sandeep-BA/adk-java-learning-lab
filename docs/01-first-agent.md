@@ -59,6 +59,6 @@ mvn -f java/pom.xml exec:java -Dexec.args="2 offline"
 mvn -f java/pom.xml exec:java "-Dexec.args=9 offline 'Look up CASE-9999'"
 ```
 
-The first finds CASE-1042 (open); the second shows a missing case returned as data, `not_found`, instead of an invented status. Lesson 2, how function tools really work, arrives with Episode 2.
+The first finds CASE-1042 (open); the second shows a missing case returned as data, `not_found`, instead of an invented status. Next: [Lesson 2: function tools](02-function-tools.md), how the model calls your code and why the tool must validate what it sends.
 
 For background, read [AICassindra's core-module overview](https://aicassindra.com/blogs/adk_java/adk_java_core_module_overview.html). Treat article snippets as conceptual material; the pinned examples here are the executable reference for this course.

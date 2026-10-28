@@ -5,6 +5,10 @@ public final class LabCli {
   private LabCli() {}
 
   public static void main(String[] args) {
+    if (args.length > 0 && args[0].equals("contract")) {
+      ContractDemo.main(args);
+      return;
+    }
     int lesson = args.length > 0 ? Integer.parseInt(args[0]) : 1;
     boolean live = args.length > 1 && args[1].equals("live");
     if (args.length > 1 && !live && !args[1].equals("offline"))

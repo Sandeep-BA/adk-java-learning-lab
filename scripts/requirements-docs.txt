@@ -1,2 +1,0 @@
-# Author: Sandeep Belgavi
-Markdown==3.7

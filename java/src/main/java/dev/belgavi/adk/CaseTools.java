@@ -18,4 +18,16 @@ public final class CaseTools {
       default -> Map.of("id", caseId, "error", "not_found");
     };
   }
+
+  /**
+   * Teaching contrast for lesson 2, never registered with an agent: it trusts whatever the model
+   * sends. Text the model controls is echoed back into the next model request as if it were data.
+   */
+  public Map<String, Object> lookupCaseUnchecked(String caseId) {
+    return switch (String.valueOf(caseId)) {
+      case "CASE-1042" -> Map.of("id", caseId, "status", "open", "title", "E-book download fails after password reset");
+      case "CASE-1043" -> Map.of("id", caseId, "status", "resolved", "title", "Gift card balance shows zero");
+      default -> Map.of("id", String.valueOf(caseId), "error", "not_found");
+    };
+  }
 }
