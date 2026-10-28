@@ -17,7 +17,7 @@ The application depends on the released artifact `com.google.adk:google-adk:1.12
 - [FunctionTool implementation](https://github.com/google/adk-java/blob/v1.12.0/core/src/main/java/com/google/adk/tools/FunctionTool.java): read how function methods are exposed to the runtime.
 - [Framework license](https://github.com/google/adk-java/blob/v1.12.0/LICENSE): Apache-2.0, separate from the MIT license on our original examples.
 
-The city/time/weather tutorial illustrates `LlmAgent.builder`, `FunctionTool.create` and annotated parameters. Its weather response is a hard-coded demonstration, not a live weather service. Our support-ticket examples apply those framework concepts to original synthetic data and add repeatable tests; they do not copy that tutorial's implementation.
+The city/time/weather tutorial illustrates `LlmAgent.builder`, `FunctionTool.create` and annotated parameters. Its weather response is hard-coded, not a live weather service. Our help-desk examples apply those framework concepts to original synthetic data and add repeatable tests; they do not copy that tutorial's implementation.
 
 ## AICassindra reading map
 

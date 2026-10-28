@@ -1,12 +1,12 @@
 # Belgavi's Lab
 
-**By Sandeep Belgavi.** Build and understand a Support Desk Agent with Google ADK Java, one capability per episode of [Belgavi's AI Lab](https://www.youtube.com/@belgaviai) on YouTube.
+**By Sandeep Belgavi.** Build and understand a small help-desk agent for Belgavi's Book Store, a fictional online bookstore, with ADK for Java, one capability per episode of [Belgavi's AI Lab](https://www.youtube.com/@belgaviai) on YouTube.
 
-This repository grows with the series: each episode adds its lesson here when the video is released. Every lesson has a command, expected result, code walkthrough, test and exercise. The default examples require no model account or API key.
+This repository grows with the series: each episode adds its lesson here when the video is released. Every lesson has a command, an expected result, a code walkthrough, a test and an exercise. The default examples require no model account or API key.
 
 ## 1. Check your tools
 
-Install **JDK 17+**, **Maven 3.9+** and Git.
+Install **JDK 17+**, **Maven 3.9+** and Git. Python **3.11+** is optional, for the Python comparison in each lesson.
 
 ```sh
 java -version
@@ -31,7 +31,7 @@ Run all commands below from this directory. No framework checkout or local SDK b
 mvn -B -ntp -f java/pom.xml test
 ```
 
-Expected: `BUILD SUCCESS`. The suite exercises actual ADK runners and tools with a deterministic model fixture. It also checks invalid identifiers and missing records. Initial dependency downloads need internet access. Offline model execution does not mean dependency installation works without a network.
+Expected: `BUILD SUCCESS`. The suite exercises real ADK runners and tools with a deterministic model fixture. It also checks invalid identifiers and missing records. The first build downloads dependencies and needs internet access; the offline model only removes the need for a model account.
 
 ## 4. Run your first agent
 
@@ -46,36 +46,38 @@ Expected: `OFFLINE FIXTURE: real ADK, simulated model`, followed by an `Offline 
 | Episode | What you build | Start here |
 | --- | --- | --- |
 | 1 | Your first agent, and how ADK runs it | [Your first agent](docs/01-first-agent.md) |
+| 2 | A function tool that validates what the model sends | [Function tools](docs/02-function-tools.md) |
 
-Episode 1 also runs the ticket lookup used in the video:
+Episode 2's contrast demo runs the same inputs through an unchecked tool and the validated one:
 
 ```sh
-mvn -f java/pom.xml exec:java -Dexec.args="2 offline"
-mvn -f java/pom.xml exec:java "-Dexec.args=9 offline 'Look up SUP-9999'"
+mvn -f java/pom.xml exec:java -Dexec.args="contract"
 ```
 
-**Coming next in the series:** function tools (how the model calls your code), sessions, state, guardrails, and workflows that chain lookup, policy and reply. Each lesson lands here with its episode. Watch or subscribe at [youtube.com/@belgaviai](https://www.youtube.com/@belgaviai).
+**Coming next in the series:** sessions, state, guardrails, and workflows that chain lookup, policy and reply. Each lesson lands here with its episode. Watch or subscribe at [youtube.com/@belgaviai](https://www.youtube.com/@belgaviai).
 
-Prefer a browser? Open [LEARN.html](LEARN.html) locally for the same guides, navigation and architecture diagram.
+### Python comparison
+
+Each lesson also shows the Python equivalent with `google-adk` 2.12.0:
+
+```sh
+python -m venv .venv
+.venv/bin/pip install -e "./python[dev]"      # Windows: .venv\Scripts\pip
+.venv/bin/python -m pytest python/tests -q
+.venv/bin/python -m belgavi_adk.contract_demo
+```
 
 ## 6. Understand the boundaries
 
-- Only synthetic `SUP-1042` and `SUP-1043` records exist. No external business system is contacted by the tools.
+- Only synthetic `CASE-1042` and `CASE-1043` records exist. The tools contact no external business system.
 - Sessions are in memory and use a fixed demo identity. This is not a hosted authentication or persistence implementation.
 - A live model is optional and may incur charges. See [live setup](docs/live-mode.md) before enabling it.
-- [Debugging](docs/debugging.md) provides a real breakpoint walkthrough for the tool boundary.
 - [Troubleshooting](docs/troubleshooting.md) explains common setup and SDK warnings.
 - [Architecture](docs/architecture.md) explains the code layout and execution flow.
-- [References](docs/references.md) maps the lessons to official docs, the pinned Google ADK source and relevant AICassindra articles.
+- [References](docs/references.md) maps each lesson to the official docs, the pinned Google ADK source and relevant AICassindra articles.
 
 ## Reference projects and attribution
 
 [google/adk-java](https://github.com/google/adk-java) is the upstream framework. This application uses its released Maven artifact; the [pinned source map](docs/references.md) links the matching source tag for reading.
 
 Original examples and learner documentation are by Sandeep Belgavi, licensed under [MIT](LICENSE). ADK and other dependencies retain their own licenses. No framework source is vendored. This independent educational project is not an official Google course. Views are my own and do not represent any employer, past or present.
-
-## Contributing with a coding agent
-
-Read [AGENTS.md](AGENTS.md). Make one bounded change, add a meaningful assertion and run the existing checks. Edit `docs/` and regenerate the HTML with `python scripts/build_docs.py`. CI checks the Java build and the documentation. No workflow publishes a website or video.
-
-Install the documentation renderer with `python -m pip install -r scripts/requirements-docs.txt`. After regenerating, run `python scripts/build_docs.py --check` to check generated content and local links.

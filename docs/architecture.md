@@ -4,7 +4,7 @@ By Sandeep Belgavi.
 
 ## A deliberately small application
 
-The example answers questions about two synthetic support tickets. Tool behavior is ordinary application code. The framework coordinates model responses, tool invocation and session events. Keeping those boundaries separate lets us test failures without depending on live inference.
+The example answers questions about two synthetic help-desk cases. Tool behavior is ordinary application code. The framework coordinates model responses, tool invocation and session events. Keeping those boundaries separate lets us test failures without depending on live inference.
 
 ```text
 User message
@@ -17,15 +17,15 @@ LabSession → InMemoryRunner → session and event stream
                                 ↕
                      model response or tool call
                                 ↓
-                     validated TicketTools
+                     validated CaseTools
 ```
 
 ## Java responsibilities
 
-- `LabCli.java`: selects lesson and mode, prints responses and closes process-owned scheduler pools on exit.
+- `LabCli.java`: selects the lesson and mode, prints responses and shuts down the process-owned Rx schedulers on exit.
 - `LessonAgents.java`: constructs the agents for the lessons released so far. It is the configuration map, not a persistence layer.
 - `OfflineModel.java`: supplies deterministic responses and function calls for repeatable tests. It does not perform inference.
-- `TicketTools.java`: validates synthetic IDs and looks up records.
+- `CaseTools.java`: validates synthetic IDs and looks up records.
 - `LabSession.java`: owns a runner and one session, limits model calls and collects final responses.
 - `LabTest.java`: checks integration behavior and boundaries through the real SDK.
 
@@ -39,6 +39,6 @@ The application does not authenticate users, persist sessions, export records, s
 
 ## Bounds and lifecycle
 
-Each run allows at most twelve model calls. The 90-second Rx timeout measures gaps between events, not the whole turn.
+Each turn allows at most twelve model calls. The 90-second Rx timeout measures the gap between events, not the whole turn.
 
-`LabSession.close` releases runner resources. Only the Java command-line entry point shuts down global Rx schedulers, because it owns the process. Reusable library code must not stop thread pools used by another caller.
+`LabSession.close` releases runner resources. Only the Java command-line entry point shuts down the global Rx schedulers, because it owns the process. Reusable library code must not stop thread pools used by another caller.

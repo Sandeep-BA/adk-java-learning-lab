@@ -29,13 +29,13 @@ public final class OfflineModel extends BaseLlm {
       }
     }
     String prompt = parts.stream().map(p -> p.text().orElse("")).reduce("", String::concat);
-    var match = Pattern.compile("SUP-[0-9]{4}").matcher(prompt);
-    String id = match.find() ? match.group() : "SUP-1042";
+    var match = Pattern.compile("CASE-[0-9]{4}").matcher(prompt);
+    String id = match.find() ? match.group() : "CASE-1042";
     if (role.equals("lookup")) {
-      Map<String, Object> args = Map.of("ticketId", id);
+      Map<String, Object> args = Map.of("caseId", id);
       return reply(
           Part.builder()
-              .functionCall(FunctionCall.builder().name("lookupTicket").args(args).build())
+              .functionCall(FunctionCall.builder().name("lookupCase").args(args).build())
               .build());
     }
     return reply(
